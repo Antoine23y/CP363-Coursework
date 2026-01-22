@@ -1,0 +1,4 @@
+SELECT DISTINCT b.broadDesc
+FROM broad b
+WHERE b.broadId NOT IN (SELECT mb.memberBroadBroadId FROM memberBroad mb)
+ORDER BY b.broadDesc

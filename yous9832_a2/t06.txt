@@ -1,0 +1,6 @@
+SELECT memberSurname, memberForename, COUNT(pub.pubID) AS numBooks
+FROM member
+LEFT JOIN pub ON member.memberID = pub.pubMemberID
+LEFT JOIN pubType ON pub.pubPubType = pubType.pubType AND pubTypeDesc = 'Book'
+GROUP BY memberSurname, memberForename
+ORDER BY memberSurname, memberForename

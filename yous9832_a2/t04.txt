@@ -1,0 +1,6 @@
+SELECT pubTitle, pubTypeDesc AS fullPublicationType
+FROM member
+JOIN pub ON member.memberID = pub.pubMemberID
+JOIN pubType ON pub.pubPubType = pubType.pubType
+WHERE memberForename = 'William' AND memberSurname = 'Bain'
+ORDER BY pubTitle

@@ -1,0 +1,6 @@
+SELECT memberSurname, memberForename, pubTypeDesc AS fullPublicationType, pubTitle
+FROM member
+JOIN pub ON member.memberID = pub.pubMemberID
+JOIN pubType ON pub.pubPubType = pubType.pubType
+WHERE memberInstitution LIKE '%Laurier%'
+ORDER BY memberSurname, memberForename

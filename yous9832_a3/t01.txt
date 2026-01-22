@@ -1,0 +1,17 @@
+SELECT
+ m.memberSurname,
+ m.memberForename,
+  (SELECT COUNT(*)
+    FROM pub p
+    WHERE p.pubMemberId = m.memberId
+      AND p.pubPubType = (SELECT pt.pubType FROM pubType pt WHERE pt.pubTypeDesc = 'book')) AS books,
+  (SELECT COUNT(*)
+    FROM pub p
+    WHERE p.pubMemberId = m.memberId
+      AND p.pubPubType = (SELECT pt.pubType FROM pubType pt WHERE pt.pubTypeDesc = 'article')) AS articles,
+  (SELECT COUNT(*)
+    FROM pub p
+    WHERE p.pubMemberId = m.memberId
+      AND p.pubPubType = (SELECT pt.pubType FROM pubType pt WHERE pt.pubTypeDesc = 'Conference Paper')) AS papers
+FROM member m
+ORDER BY m.memberSurname, m.memberForename

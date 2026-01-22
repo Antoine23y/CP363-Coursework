@@ -1,0 +1,5 @@
+SELECT memberForename, memberSurname, pubTypeDesc AS fullPublicationType, pubTitle
+FROM member
+JOIN pub on member.memberID = pub.pubMemberID
+JOIN pubType on pub.pubPubType = pubType.pubType
+ORDER BY memberSurname, memberForename, fullPublicationType, pubTitle

@@ -1,0 +1,5 @@
+SELECT narrow.narrowDesc, COUNT(memberNarrow.memberNarrowMemberId) AS numMembers
+FROM narrow
+JOIN memberNarrow ON narrow.narrowId = memberNarrow.memberNarrowNarrowID
+GROUP BY narrow.narrowDesc
+ORDER BY narrow.narrowDesc

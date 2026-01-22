@@ -1,0 +1,8 @@
+SELECT m.memberSurname, m.memberForename,
+(SELECT  COUNT(*) FROM pub p
+ WHERE p.pubMemberId = m.memberId) AS pubCount
+FROM member m
+WHERE (SELECT COUNT(*) FROM pub p2
+ WHERE p2.pubMemberId = m.memberId) >= 4
+
+ORDER BY m.memberSurname, m.memberForename

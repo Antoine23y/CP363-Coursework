@@ -1,0 +1,3 @@
+SELECT * 
+FROM narrow
+ORDER by narrowDesc,narrowBroadId
